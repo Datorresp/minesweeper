@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="buscaminasinterfaz.FXMLDocumentController">
+   <children>
+      <Button layoutX="245.0" layoutY="260.0" mnemonicParsing="false" onAction="#handleButtonActionI" prefHeight="47.0" prefWidth="198.0" text="INTERMEDIO">
+         <font>
+            <Font name="Gurmukhi Sangam MN" size="24.0" />
+         </font>
+      </Button>
+      <Button layoutX="245.0" layoutY="316.0" mnemonicParsing="false" onAction="#handleButtonActionE" prefHeight="45.0" prefWidth="198.0" text="EXPERTO">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="Principiante" layoutX="245.0" layoutY="206.0" mnemonicParsing="false" onAction="#handleButtonActionP" text="PRINCIPIANTE">
+         <font>
+            <Font name="Gurmukhi Sangam MN" size="24.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="50.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../Downloads/7daf4dbbc342198f43aa2d94a482c7ab_icon.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="226.0" layoutY="139.0" text="Elige el nivel deseado:" textFill="#c93333">
+         <font>
+            <Font name="Devanagari Sangam MN" size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="245.0" layoutY="61.0" text="BUSCAMINAS" textAlignment="CENTER" textFill="#b6b930">
+         <font>
+            <Font name="Courier Bold" size="53.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
+
+    
