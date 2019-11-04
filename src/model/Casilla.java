@@ -57,7 +57,7 @@ public class Casilla {
 	 */
 	public Casilla(int tipo) {
 		this.tipo = tipo;
-		seleccionada = false;
+		seleccionada = true;
 		valor = -1;
 	}
 	
@@ -87,23 +87,23 @@ public class Casilla {
 	 * Genera un String que representa el valor que se debe mostrar de la casilla
 	 * @return El String con la representaciÛn actual de la casilla
 	 */
-	public Button mostrarValorCasilla(){
+	public String mostrarValorCasilla(){
             
             String valor = "";
-            Button b = null;
+            
 
             if(!seleccionada){
                 valor = " - ";
-                b.setText(valor);
+                
             }else if(esMina()) {
                 valor = " * ";
-                b.setText(valor);
+                
             }else {
                 valor = " " +this.valor+" ";
-                b.setText(valor);
+                
             }
 
-            return b;
+            return valor;
 	}
 	
 	/**

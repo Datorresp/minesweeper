@@ -51,11 +51,16 @@ public class FXMLDocumentController implements Initializable {
         b = new Buscamina(dificultad);
         VBox root = new VBox();
         GridPane gp = new GridPane();
+        root.getChildren().add(gp);
+        Scene s = new Scene(root);
+        Stage newStage = new Stage();
+        newStage.setScene(s);
+        newStage.show();
         for ( i = 0; i < b.getCasillas().length; i++) {
             for ( j = 0; j < b.getCasillas()[0].length; j++) {
                 Button bo = new Button();
                 gp.add(bo, i, j);
-                gp.setId(i + "," + j);
+                bo.setId(i + "," + j);
                 bo.setOnAction(e->{
                 
                 String id = bo.getId();
@@ -63,19 +68,28 @@ public class FXMLDocumentController implements Initializable {
                 int ii = Integer.parseInt(pos[0]);
                 int jj = Integer.parseInt(pos[1]);
                 b.abrirCasilla(ii, jj);
-                bo.setText(b.mostrarTablero(ii, jj));
+                bo.setText(b.mostrarCasilla(ii, jj));
+                
+                    if (b.darCasillas()[ii][jj].esMina() == true) {
+                        
+                        VBox root2 = new VBox();
+                        Label l = new Label("Perdio");
+                        root2.getChildren().remove(0);
+                        root2.getChildren().add(l);
+                        Scene s2 = new Scene(root2);                        
+                        newStage.setScene(s);
+                        newStage.show();
+                    }
+                
+                   
                         
                         
-                        });
+                        
+                
+                });
                             
             }
-        }
-        root.getChildren().add(gp);
-        Scene s = new Scene(root);
-        Stage newStage = new Stage();
-        newStage.setScene(s);
-        newStage.show();
-        
+        }       
     }
      
     

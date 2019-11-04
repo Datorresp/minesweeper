@@ -277,19 +277,15 @@ public class Buscamina {
      *
      * @return String - El tablero en formato String
      */
-    public String mostrarTablero(int i, int j) {
+    public String mostrarCasilla(int i, int j) {
         
-        String s= "";
+        String s = "";
        
-        for ( i = 0; i < casillas.length; i++) {
-            
-                    
-            for ( j = 0; j < casillas[0].length; j++) {
+        
                            
-                s += casillas[i][j].mostrarValorCasilla();
+          s += casillas[i][j].mostrarValorCasilla();
                 
-            }    
-        }  
+        
         
         return s;   
     }
@@ -325,15 +321,15 @@ public class Buscamina {
      * @param j - la columna donde esta la casilla
      * @return boolean - true si fue posible destaparla, false en caso contrario
      */
-    public String abrirCasilla(int i, int j) {
+    public boolean abrirCasilla(int i, int j) {
         
-        String abrir = "";
+        boolean abrir = false;
         
         
         if (casillas[i][j].darSeleccionada() == false) {
             
             casillas[i][j].destapar();
-            abrir += mostrarTablero(i, j);
+            abrir = true;
             
             
             
