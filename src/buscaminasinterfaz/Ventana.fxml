@@ -26,7 +26,7 @@
       </Button>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="50.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../Downloads/7daf4dbbc342198f43aa2d94a482c7ab_icon.png" />
+            <Image url="@7daf4dbbc342198f43aa2d94a482c7ab_icon.png" />
          </image>
       </ImageView>
       <Label layoutX="226.0" layoutY="139.0" text="Elige el nivel deseado:" textFill="#c93333">
@@ -41,5 +41,3 @@
       </Label>
    </children>
 </AnchorPane>
-
-    
