@@ -12,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -39,7 +40,9 @@ public class FXMLDocumentController implements Initializable {
     private Button Experto;    
     
     private Buscamina b;
-    private  int dificultad;    
+    private  int dificultad; 
+    
+    
     
     @FXML
     private void handleButtonActionP(ActionEvent event) {
@@ -72,13 +75,19 @@ public class FXMLDocumentController implements Initializable {
                 
                     if (b.darCasillas()[ii][jj].esMina() == true) {
                         
-                        VBox root2 = new VBox();
-                        Label l = new Label("Perdio");
-                        root2.getChildren().remove(0);
-                        root2.getChildren().add(l);
-                        Scene s2 = new Scene(root2);                        
-                        newStage.setScene(s);
-                        newStage.show();
+                        try{
+                            
+                            Stage st = new Stage();
+                            Parent gameOver = FXMLLoader.load(getClass().getResource("/buscaminasinterfaz/VentanaOver.fxml"));
+                            Scene gameO = new Scene(gameOver);
+                            st.setScene(gameO);
+                            st.show();
+                        }catch (IOException ex) {
+                            
+                            ex.printStackTrace();
+                        }
+                        
+                        
                     }
                 
                    
@@ -90,6 +99,11 @@ public class FXMLDocumentController implements Initializable {
                             
             }
         }       
+    }
+    
+    private void inicio(ActionEvent event){
+        
+        
     }
      
     
