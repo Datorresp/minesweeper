@@ -63,6 +63,7 @@ public class FXMLDocumentController implements Initializable {
             for ( j = 0; j < b.getCasillas()[0].length; j++) {
                 Button bo = new Button();
                 gp.add(bo, i, j);
+                bo.setText("-");
                 bo.setId(i + "," + j);
                 bo.setOnAction(e->{
                 
@@ -77,23 +78,32 @@ public class FXMLDocumentController implements Initializable {
                         
                         try{
                             
-                            Stage st = new Stage();
+                            Stage sta = new Stage();
                             Parent gameOver = FXMLLoader.load(getClass().getResource("/buscaminasinterfaz/VentanaOver.fxml"));
                             Scene gameO = new Scene(gameOver);
-                            st.setScene(gameO);
-                            st.show();
+                            sta.setScene(gameO);
+                            sta.show();
                         }catch (IOException ex) {
                             
                             ex.printStackTrace();
                         }
                         
                         
+                    }if (b.gano()==false) {
+                       
+                        try{
+                            Stage stag = new Stage();
+                            Parent win = FXMLLoader.load(getClass().getResource("/buscaminasinterfaz/VentanaWin.fxml"));
+                            Scene winW = new Scene(win);
+                            stag.setScene(winW);
+                            stag.show();   
+                            
+                        }catch (IOException ex) {
+                        
+                            ex.printStackTrace();
+                        }    
                     }
-                
-                   
-                        
-                        
-                        
+                       
                 
                 });
                             
@@ -111,23 +121,67 @@ public class FXMLDocumentController implements Initializable {
     private void handleButtonActionI(ActionEvent event) {
                 
         dificultad = 2;
-        System.out.println("INTERMEDIO" + dificultad);
+        int i = 0;
+        int j = 0;
+        System.out.println("PRINCIPIANTES" + dificultad);
         b = new Buscamina(dificultad);
-        
         VBox root = new VBox();
         GridPane gp = new GridPane();
-        for (int i = 0; i < b.getCasillas().length; i++) {
-            for (int j = 0; j < b.getCasillas()[0].length; j++) {
-                Button b = new Button();
-                gp.add(b, i, j);
-                        
-            }            
-        }
         root.getChildren().add(gp);
         Scene s = new Scene(root);
         Stage newStage = new Stage();
         newStage.setScene(s);
         newStage.show();
+        for ( i = 0; i < b.getCasillas().length; i++) {
+            for ( j = 0; j < b.getCasillas()[0].length; j++) {
+                Button bo = new Button();
+                gp.add(bo, i, j);
+                bo.setText("-");
+                bo.setId(i + "," + j);
+                bo.setOnAction(e->{
+                
+                String id = bo.getId();
+                String[] pos = id.split(",");
+                int ii = Integer.parseInt(pos[0]);
+                int jj = Integer.parseInt(pos[1]);
+                b.abrirCasilla(ii, jj);
+                bo.setText(b.mostrarCasilla(ii, jj));
+                
+                    if (b.darCasillas()[ii][jj].esMina() == true) {
+                        
+                        try{
+                            
+                            Stage sta = new Stage();
+                            Parent gameOver = FXMLLoader.load(getClass().getResource("/buscaminasinterfaz/VentanaOver.fxml"));
+                            Scene gameO = new Scene(gameOver);
+                            sta.setScene(gameO);
+                            sta.show();
+                        }catch (IOException ex) {
+                            
+                            ex.printStackTrace();
+                        }
+                        
+                        
+                    }if (b.gano()==false) {
+                       
+                        try{
+                            Stage stag = new Stage();
+                            Parent win = FXMLLoader.load(getClass().getResource("/buscaminasinterfaz/VentanaWin.fxml"));
+                            Scene winW = new Scene(win);
+                            stag.setScene(winW);
+                            stag.show();   
+                            
+                        }catch (IOException ex) {
+                        
+                            ex.printStackTrace();
+                        }    
+                    }
+                       
+                
+                });
+                            
+            }
+        }
         
     }
     
@@ -136,21 +190,67 @@ public class FXMLDocumentController implements Initializable {
         
         dificultad = 3;
         System.out.println("EXPERTO");
+        int i = 0;
+        int j = 0;
+        System.out.println("PRINCIPIANTES" + dificultad);
         b = new Buscamina(dificultad);
         VBox root = new VBox();
         GridPane gp = new GridPane();
-        for (int i = 0; i < b.getCasillas().length; i++) {
-            for (int j = 0; j < b.getCasillas()[0].length; j++) {
-                Button b = new Button();
-                gp.add(b, i, j);
-                
-            }            
-        }
         root.getChildren().add(gp);
         Scene s = new Scene(root);
         Stage newStage = new Stage();
         newStage.setScene(s);
         newStage.show();
+        for ( i = 0; i < b.getCasillas().length; i++) {
+            for ( j = 0; j < b.getCasillas()[0].length; j++) {
+                Button bo = new Button();
+                gp.add(bo, i, j);
+                bo.setText("-");
+                bo.setId(i + "," + j);
+                bo.setOnAction(e->{
+                
+                String id = bo.getId();
+                String[] pos = id.split(",");
+                int ii = Integer.parseInt(pos[0]);
+                int jj = Integer.parseInt(pos[1]);
+                b.abrirCasilla(ii, jj);
+                bo.setText(b.mostrarCasilla(ii, jj));
+                
+                    if (b.darCasillas()[ii][jj].esMina() == true) {
+                        
+                        try{
+                            
+                            Stage sta = new Stage();
+                            Parent gameOver = FXMLLoader.load(getClass().getResource("/buscaminasinterfaz/VentanaOver.fxml"));
+                            Scene gameO = new Scene(gameOver);
+                            sta.setScene(gameO);
+                            sta.show();
+                        }catch (IOException ex) {
+                            
+                            ex.printStackTrace();
+                        }
+                        
+                        
+                    }if (b.gano()==false) {
+                       
+                        try{
+                            Stage stag = new Stage();
+                            Parent win = FXMLLoader.load(getClass().getResource("/buscaminasinterfaz/VentanaWin.fxml"));
+                            Scene winW = new Scene(win);
+                            stag.setScene(winW);
+                            stag.show();   
+                            
+                        }catch (IOException ex) {
+                        
+                            ex.printStackTrace();
+                        }    
+                    }
+                       
+                
+                });
+                            
+            }
+        }
     }
     
     
